@@ -42,13 +42,14 @@ public class Main {
 
         // create the threads
         CounterThread[] threads = new CounterThread[numThreads];
-        long startTime = System.nanoTime();
+
         for (int i = 0; i < numThreads; ++i) {
             CounterThread th = new CounterThread(counter, numTotalInc / numThreads, i);
             th.setName((new Integer(i)).toString());
             th.start();
             threads[i] = th;
         }
+        long startTime = System.nanoTime();
 
         // join the threads to wait
         try {
